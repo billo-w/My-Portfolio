@@ -9,8 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Installing shell check and checking script
+      - name: Installing shell check
         run: |
           echo "Intalling ShellCheck"
           sudo apt install shellcheck -y
-          shellcheck save_web_logs.sh
+      - name: Running shell check
+        run: shellcheck save_web_logs.sh
