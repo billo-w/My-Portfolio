@@ -8,10 +8,6 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Installing shell check
-        run: |
-          echo "Intalling ShellCheck"
-          sudo apt install shellcheck -y
-      - name: Running shell check
-        run: shellcheck save_web_logs.sh
+      - uses: actions/checkout@v4
+      - name: Running ShellCheck
+        uses: ludeeus/action-shellcheck@master
