@@ -1,0 +1,31 @@
+name: add very real log
+
+on:
+  push:
+    branches: 
+      - main
+  workflow_dispatch:
+
+jobs:
+  log-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: execute the sript
+        run: chmod +x save_web_logs.sh
+
+      - name: run da script
+        run: ./save_web_logs.sh
+
+      - name: chnages commited #mhmm very good code
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add saved.log
+          git commit -m "Update saved.log with fake log entry" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          #yes i see
