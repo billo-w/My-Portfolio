@@ -17,7 +17,7 @@ jobs:
         run: chmod +x save_web_logs.sh
 
       - name: run da script
-        run: ./save_web_logs.sh
+        run: save_web_logs.sh
 
       - name: chnages commited #mhmm very good code
         run: |
